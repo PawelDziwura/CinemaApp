@@ -1,0 +1,69 @@
+<body>
+  <ng-container *ngIf="user && seance && userPlaceList">
+    <mat-card>
+      <p>Order summary:</p>
+      <table>
+        <tr>
+          <th><h1>Personal data</h1></th>
+          <th></th>
+          <th><h1>Movie data</h1></th>
+        </tr>
+        <tr>
+          <th>Data: </th>
+          <th>Value: </th>
+          <th>Data: </th>
+          <th>Value: </th>
+        </tr>
+        <tr>
+          <td>Name: </td>
+          <td>{{user.name}}</td>
+          <td>Title: </td>
+          <td>{{seance.movie.title}}</td>
+        </tr>
+        <tr>
+          <td>Surname: </td>
+          <td>{{user.surname}}</td>
+          <td>Genre: </td>
+          <td>{{seance.movie.genre}}</td>
+        </tr>
+        <tr>
+          <td>E-mail: </td>
+          <td>{{user.email}}</td>
+          <td>Duration time: </td>
+          <td>{{seance.movie.durationTime}}</td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <th><h1>Seance data: </h1></th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>Data: </th>
+          <th>Value: </th>
+        </tr>
+        <tr>
+          <td>Start: </td>
+          <td>{{seance.startDate | date: 'dd.MM - hh:mm'}}</td>
+        </tr>
+        <tr>
+          <td>Places: </td>
+          <td>
+            <ng-container *ngFor="let item of userPlaceList">
+              {{item.number}}
+            </ng-container>
+          </td>
+        </tr>
+      </table>
+      <hr>
+      <img src="../../../assets/images/hall.JPG">
+      <br><hr>
+      <div class="nav-buttons">
+        <button class="btn btn-nav btn-warning btn-radius" (click)="onReturnClick()"><fa-icon [icon]="faArrowCircleLeft"></fa-icon> Return</button>
+        <button class="btn btn-nav btn-success btn-radius"(click)="onConfirmClick()">Confirm</button>
+      </div>
+    </mat-card>
+  </ng-container>
+</body>
+

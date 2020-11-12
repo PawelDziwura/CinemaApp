@@ -1,0 +1,23 @@
+<div class="content">
+  <h1 mat-dialog-title>Seance</h1>
+  <div mat-dialog-content>
+    <p>Choos seance: </p>
+    <p class="errorMessage">{{errorMessage}}</p>
+    <div class="mt-1">
+      <input type="date" class="form-control" name='startDate' [(ngModel)]="seanceDate" placeholder="Seance date">
+    </div>
+  </div>
+  <div><br>
+    <ng-container *ngIf="movie.seances != null">
+      <ng-container *ngFor="let item of movie.seances">
+        <ng-container *ngIf="(item.startDate | date: 'dd.MM.yyyy') == (this.seanceDate | date: 'dd.MM.yyyy')">
+          <button class="btn-success btn-radius btn-seance" (click)="onSeanceClick(item.id)">{{item.startDate | date: 'hh:mm'}}</button>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancelClick()">Cancel</button>
+    <button mat-button (click)="onNextClick()">Next</button>
+  </div>
+</div>

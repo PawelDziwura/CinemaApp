@@ -1,0 +1,26 @@
+table {
+  width: 100%;
+  height: calc(100vh - 110px);
+  background-color: rgba(247, 229, 229, 0.1);
+  overflow: auto;
+  overflow-y: scroll;
+  overflow-y: auto;
+}
+
+body{
+  background-color: rgba(253, 239, 239, 0.8);
+}
+
+::ng-deep .mat-header-cell{
+  background-color: rgb(228, 217, 217);
+}
+
+.mat-cell{
+  color: rgb(92, 88, 88);
+  min-height: 100px;
+}
+
+.mat-paginator{
+  background-color: rgba(255, 255, 255, 0.3);
+  height: 60px;
+}

@@ -1,0 +1,53 @@
+<ng-container *ngIf="selectedUser">
+  <h1 mat-dialog-title>User Info</h1>
+  <div mat-dialog-content>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Properties</th>
+          <th scope="col">Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>User email: </td>
+          <td>{{selectedUser.email}}</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>User name: </td>
+          <td>{{selectedUser.name}}</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>User surname: </td>
+          <td>{{selectedUser.surname}}</td>
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td>User orders: </td>
+          <td>{{selectedUser.orders.length}}</td>
+        </tr>
+        <tr>
+          <th scope="row">5</th>
+          <td>User password: </td>
+          <td>{{selectedUser.password}}</td>
+        </tr>
+        <tr>
+          <th scope="row">6</th>
+          <td>User is Admin: </td>
+          <td><mat-checkbox [checked] = "selectedUser.isAdmin" [disabled]="true"></mat-checkbox></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onEditClick()">Edit</button>
+    <button mat-button (click)="onCancelClick()">Cancel</button>
+  </div>
+</ng-container>
+
+

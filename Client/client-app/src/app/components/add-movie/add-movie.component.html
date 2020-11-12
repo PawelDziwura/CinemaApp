@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Add Movie</h1>
+<div mat-dialog-content>
+  <p>Movie data: </p>
+  <div class="mt-1">
+    <input class="form-control" name='title' [(ngModel)]="title" placeholder="Title">
+  </div>
+  <div class="mt-1">
+    <input class="form-control" name='genre' [(ngModel)]="genre" placeholder="Genre">
+  </div>
+  <div class="mt-1">
+    <input class="form-control" name='durationTime' [(ngModel)]="durationTime" placeholder="Duration Time">
+  </div>
+  <div class="mt-1">
+    <input class="form-control" name='description' [(ngModel)]="description" placeholder="Desctiption">
+  </div>
+  <div class="mt-1">
+    <br><p>Select poster</p>
+    <input type="file" (change)="fileChangeEvent($event.target.files)" id="poster" name="poster" [ngModel]="inputFile">
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onOkClick()">Add</button>
+</div>

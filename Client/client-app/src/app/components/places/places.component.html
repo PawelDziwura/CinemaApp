@@ -1,0 +1,42 @@
+<body>
+  <div style="max-width: 100%;">
+    <h1>Select your places:</h1>
+    <button class="btn btn-screen btn-secondary" [disabled] = true>Screen</button>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="btn-group">
+          <p>
+            <ng-container *ngIf="seance">
+              <ng-container *ngFor="let item of seance.places">
+                <ng-container *ngIf="(item.number - 1)%25 == 0">
+                  <button class="btn btn-row" [disabled] = true>Row: {{(item.number-1)/25 + 1}}</button>
+                </ng-container>
+                <ng-container *ngIf="item.isFree">
+
+                  <button [ngClass] = "{'green' : toggle[item.number-1], 'red' : !toggle[item.number-1]}"
+                  (mousedown)="onSelectClick(item.number-1)" class="btn btn-sq-lg btn-success">
+                    {{item.number}}
+                  </button>
+
+                </ng-container>
+                <ng-container *ngIf="!item.isFree">
+                  <button [disabled] = true class="btn btn-person-lg btn-success"></button>
+                </ng-container>
+                <ng-container *ngIf="item.number > 0 && (item.number)%25 == 0">
+                  <br>
+                </ng-container>
+              </ng-container>
+            </ng-container>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <button class="btn btn-nav btn-outline-warning btn-radius" (click)="onReturnClick()"><fa-icon [icon]="faArrowCircleLeft"></fa-icon> Return</button>
+      <button class="btn btn-nav btn-outline-success btn-radius"(click)="onNextClick()">Next <fa-icon [icon]="faArrowCircleRight"></fa-icon></button>
+    </div>
+    <p class="errorMessage">{{errorMessage}}</p>
+  </div>
+</body>
+
+

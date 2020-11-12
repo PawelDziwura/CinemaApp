@@ -1,0 +1,32 @@
+<body>
+  <mat-toolbar class="mat-elevation-z6" color="primary">
+    <button mat-button [routerLink]="['']">CinemaApp - Client</button>
+    <button mat-button [routerLink]="['movies']">Movies</button>
+
+    <ng-container *ngIf="currentUser && currentUser.isAdmin == true">
+      <button mat-button [routerLink]="['users']">Users</button>
+    </ng-container>
+
+    <span class="spacer"></span>
+    <span [routerLink]="['me']">{{currentUser?.name}}</span>
+    <button mat-button [matMenuTriggerFor]="userMenu"><fa-icon [icon]="faUser"></fa-icon></button>
+      <mat-menu #userMenu="matMenu">
+        <ng-container *ngIf="!currentUser">
+        <button mat-menu-item [routerLink]="['login']">Login</button>
+        <button mat-menu-item [routerLink]="['register']"><fa-icon [icon]="faUserPlus"></fa-icon> Register</button>
+        </ng-container>
+        <ng-container *ngIf="currentUser">
+          <button mat-menu-item (click)="onLogout()">Logout</button>
+          <ng-container *ngIf="currentUser.isAdmin == true">
+            <button mat-menu-item [routerLink]="['admin-panel']">Admin Panel</button>
+          </ng-container>
+        </ng-container>
+      </mat-menu>
+  </mat-toolbar>
+
+  <section class="background">
+    <router-outlet></router-outlet>
+  </section>
+</body>
+
+

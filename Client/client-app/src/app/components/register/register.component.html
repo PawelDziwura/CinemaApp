@@ -1,0 +1,30 @@
+<body>
+  <div class=" login-container">
+    <div class='row login-row'>
+      <div class='col-md-4'>
+      </div>
+      <div class='col-md-4'>
+        <div class="mt-1">
+          <input class="form-control" name='name' [(ngModel)]="name" placeholder="Name">
+        </div>
+        <div class="mt-1">
+          <input class="form-control" name='surname' [(ngModel)]="surname" placeholder="Surname">
+        </div>
+        <div class="mt-1">
+          <input class="form-control" type='email' name='emali' [(ngModel)]="email" placeholder="Email">
+        </div>
+        <div class="mt-1">
+          <input class="form-control" type='password' name='password' [(ngModel)]="password" placeholder="Password">
+        </div>
+        <div class="row">
+          <div class="col-md-6"></div>
+          <div class="col-md-6">
+            <button mat-raised-button color="primary" class="mt-1 btn btn-block" (click)="onRegisterClick()">Register</button>
+          </div>
+        </div>
+      </div>
+      <div class='col-md-4'>
+      </div>
+    </div>
+  </div>
+</body>

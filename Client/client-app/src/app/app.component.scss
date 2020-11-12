@@ -1,0 +1,26 @@
+html, body, app-root, .app-frame {
+  overflow: auto;
+  margin: 0;
+  height: 100%;
+  box-sizing: border-box;
+  color: #e0e0e0;
+  //overflow-y: scroll;
+  //overflow-y: hidden;
+  overflow-x: scroll;
+  overflow-x: hidden;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.background{
+  background-attachment: fixed;
+  min-height: calc(100vh - 50px);
+  background-image: url(../assets/images/background-blur.jpg);
+}
+
+.mat-elevation-z6{
+  height: 50px;
+  position: flex;
+}

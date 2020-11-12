@@ -1,0 +1,50 @@
+  <table class="movies-table" mat-table [dataSource]="movies">
+
+    <ng-container class="poster-cell" matColumnDef = "poster">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef = "let element"><img [src]="getImage(element.poster)" /></td>
+    </ng-container>
+
+    <ng-container matColumnDef = "title">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-form-field>
+          <mat-label>Title</mat-label>
+          <input matInput (input)="applyFilter()" [(ngModel)]="titleFilter">
+        </mat-form-field>
+      </th>
+      <td mat-cell *matCellDef = "let element"> {{element.title}} </td>
+   </ng-container>
+
+   <ng-container matColumnDef = "genre">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-form-field>
+          <mat-label>Genre</mat-label>
+          <input matInput (input)="applyFilter()" [(ngModel)]="genreFilter">
+        </mat-form-field>
+      </th>
+      <td mat-cell *matCellDef = "let element"> {{element.genre}} </td>
+   </ng-container>
+
+   <ng-container matColumnDef = "dutation">
+    <th mat-header-cell *matHeaderCellDef>Duration time</th>
+    <td mat-cell *matCellDef = "let element"> {{element.durationTime}} min </td>
+  </ng-container>
+    <ng-container matColumnDef = "delete">
+      <th mat-header-cell *matHeaderCellDef>Delete</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-checkbox class="chceck" (click)="onDeleteClick(element.id, $event)"></mat-checkbox>
+      </td>
+    </ng-container>
+   <tr mat-header-row *matHeaderRowDef = "displayedColumns, sticky: true"></tr>
+   <tr class="label" mat-row *matRowDef = "let row; columns: displayedColumns;" [routerLink]="['/movie', row.id]"></tr>
+  </table>
+
+  <ng-container *ngIf="currentUser">
+    <ng-container *ngIf="currentUser.isAdmin == true">
+      <div class="faPlus">
+        <button mat-fab (click)="openDialog()"><fa-icon [icon]="faPlus"></fa-icon></button>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <mat-paginator [pageSizeOptions] = "[5, 10, 15, 50]" [pageSize] = "15" ></mat-paginator>

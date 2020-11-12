@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Add Seance</h1>
+<div mat-dialog-content>
+  <p>Seance data: </p>
+
+  <div class="errorMessage">
+    <p>{{errorMessage}}</p>
+  </div>
+  <div class="mt-1">
+    <input type="datetime-local" class="form-control" name='startDate' [(ngModel)]="startDate" placeholder="Start date">
+  </div>
+  <div class="mt-1">
+    <input type="datetime-local" class="form-control" name='endDate' [(ngModel)]="endDate" placeholder="End date">
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button mat-button (click)="onAddClick()">Add</button>
+</div>

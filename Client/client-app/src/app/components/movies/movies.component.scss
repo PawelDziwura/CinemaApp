@@ -1,0 +1,40 @@
+table {
+  width: 100%;
+  height: calc(100vh - 110px);
+  background-color: rgba(247, 229, 229, 0.452);
+  overflow: auto;
+  overflow-y: scroll;
+  overflow-y: auto;
+}
+
+.mat-cell{
+  font-size: x-large;
+  color: rgb(92, 88, 88);
+}
+
+.label:hover{
+  background-color: rgba(255, 255, 255, 0.4);
+  opacity: 0.8;
+}
+
+img{
+  max-width: 350px;
+}
+
+.poster-cell{
+  left: 0px;
+}
+
+.mat-paginator{
+  background-color: rgba(255, 255, 255, 0.822);
+  height: 60px;
+}
+
+.faPlus{
+  z-index:1;
+  position : fixed;
+  display : flex;
+  align-self : flex-end;
+  bottom: 5%; ;
+  right: 50px;
+}

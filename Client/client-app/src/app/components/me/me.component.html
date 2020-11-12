@@ -1,0 +1,39 @@
+<body>
+  <ng-container *ngIf="currentUser">
+    <mat-card>
+      <p>Your profile:</p>
+      <table>
+        <tr>
+          <th><h1>Personal data</h1></th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>Data: </th>
+          <th>Value: </th>
+        </tr>
+        <tr>
+          <td>Name: </td>
+          <td>{{currentUser.name}}</td>
+        </tr>
+        <tr>
+          <td>Surname: </td>
+          <td>{{currentUser.surname}}</td>
+        </tr>
+        <tr>
+          <td>E-mail: </td>
+          <td>{{currentUser.email}}</td>
+        </tr>
+          <tr>
+            <td>Orders:</td>
+            <td>{{currentUser.orders.length}}</td>
+          </tr>
+      </table>
+
+      <br><hr>
+      <div class="nav-buttons">
+        <button class="btn btn-nav btn-warning btn-radius" (click)="onReturnClick()"><fa-icon [icon]="faArrowCircleLeft"></fa-icon> Return</button>
+        <button class="btn btn-nav btn-success btn-radius"(click)="onEditClick()">Edit</button>
+      </div>
+    </mat-card>
+  </ng-container>
+</body>

@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Refund this order?</h1>
+<mat-dialog-content>
+  <ng-container *ngIf="errorMessage != null">
+    <p class="errorMessage">{{this.errorMessage}}</p>
+  </ng-container>
+  <p>Movie title: {{order.orderSeance.movie.title}}</p>
+  <p>Date: {{order.orderSeance.startDate | date: 'dd.MM.yyyy - hh:mm'}}</p>
+</mat-dialog-content>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No</button>
+  <button mat-button (click)="onOkClick()">Yes</button>
+</div>

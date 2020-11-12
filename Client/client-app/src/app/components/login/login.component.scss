@@ -1,0 +1,26 @@
+.login-container {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 100vh;
+}
+
+.login-row {
+  width: 100%;
+}
+
+body {
+  height: calc(100vh - 50px);
+  overflow-x: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  overflow-y: hidden;
+  background-color: rgba(253, 239, 239, 0.822);
+}
+
+.validationMessage{
+  color: red;
+}
+
+

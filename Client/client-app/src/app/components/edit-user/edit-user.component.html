@@ -1,0 +1,91 @@
+<body>
+  <ng-container *ngIf="user && currentUser">
+    <mat-card>
+      <hr>
+      <div class="container bootstrap snippet">
+        <div class="row">
+          <div class="col-sm-10"><h1>{{user.name}}</h1></div>
+        </div>
+        <div class="row">
+        <div class="col-sm-3"><!--left col-->
+
+          <div class="text-center">
+            <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+            <h6>Upload a different photo...</h6>
+            <input type="file" class="text-center center-block file-upload">
+          </div><br>
+
+              <ul class="list-group">
+                <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Orders</strong></span></li>
+
+                <ng-container *ngFor="let item of user.orders">
+                    <button class="btn btn-danger btn-order" (click)="onOrderClick(item)">{{item.orderSeance.movie.title}}, {{item.orderSeance.startDate | date: 'dd.MM - hh:mm'}}</button>
+                </ng-container>
+
+                <ng-container *ngIf="currentUser.isAdmin == true">
+                  <br><br>
+                  <p>Is Admin: </p>
+                  <mat-checkbox [checked] = "user.isAdmin" (ngModelChange) = "isAdmin" ></mat-checkbox>
+                </ng-container>
+              </ul>
+
+
+        </div><!--/col-3-->
+          <div class="col-sm-9">
+              <div class="tab-content">
+                <div class="tab-pane active" id="home">
+                    <hr>
+                      <form class="form" action="##" method="post" id="userForm">
+                          <div class="form-group">
+
+                              <div class="col-xs-6">
+                                  <label for="first_name"><h4>First name</h4></label>
+                                  <input type="text" class="form-control" name="first_name" id="first_name" [(ngModel)]="name" placeholder="first name" title="enter your first name if any.">
+                              </div>
+                          </div>
+                          <div class="form-group">
+
+                              <div class="col-xs-6">
+                                <label for="last_name"><h4>Last name</h4></label>
+                                  <input type="text" class="form-control" name="last_name" id="last_name" [(ngModel)]="surname" placeholder="last name" title="enter your last name if any.">
+                              </div>
+                          </div>
+
+                          <ng-container *ngIf="currentUser.isAdmin == true">
+                            <div class="form-group">
+
+                              <div class="col-xs-6">
+                                  <label for="email"><h4>Email</h4></label>
+                                  <input type="email" class="form-control" name="email" id="email" [(ngModel)]="email" placeholder="email" title="enter your email.">
+                              </div>
+                            </div>
+                          </ng-container>
+
+                          <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="password"><h4>Password</h4></label>
+                                <input type="password" class="form-control" name="password" id="password" [(ngModel)]="password" placeholder="password" title="enter your password.">
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                               <div class="col-xs-12">
+                                    <br>
+                                    <button class="btn btn-lg btn-success" type="submit" (click)="onSaveClick()"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                                    <button class="btn btn-lg btn-warning" type="submit" (click)="onCancelClick()"> Cancel</button>
+                                </div>
+                          </div>
+                    </form>
+                  <hr>
+              </div><!--/tab-content-->
+            </div><!--/col-9-->
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </ng-container>
+
+</body>

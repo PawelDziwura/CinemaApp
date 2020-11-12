@@ -1,0 +1,51 @@
+<!-- <ng-container *ngIf="movie" class="wrapper">
+  <div id="bg">
+    <img [src]="getImage(movie.poster)" />
+    <div>
+          <ng-container *ngIf="currentUser != null">
+            <ng-container *ngIf="currentUser.isAdmin == true">
+              <button [routerLink]="['/movie-edit/' + movie.id]">Edit movie</button>
+              <button (click)="onAddSeanceClick(movie)">Add Seance</button>
+              <ng-container *ngFor="let item of movie.seances">
+                <button>{{item.startDate | date:'hh:mm'}}</button>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </div>
+  </div>
+</ng-container> -->
+<body>
+  <ng-container *ngIf="movie">
+    <section class="wrapper">
+      <img class="bg-image" [src]="getImage(movie.poster)" />
+      <div>
+        <img class="movie-image" [src]="getImage(movie.poster)" />
+
+        <div class="text text-title">
+          {{movie.title}}
+        </div>
+        <div class="text text-description">
+          {{movie.description}}
+        </div>
+      </div>
+
+      <div class="bottom-data">
+        <hr>
+        <div class="text text-genre">
+          <p>Genre: {{movie.genre}}</p>
+          <button class="btn btn-success btn-radius" (click)="onChooseSeanceClick(movie)"> Choose seance <fa-icon [icon]="faVideo"></fa-icon></button>
+        </div>
+      </div>
+
+      <ng-container *ngIf="currentUser">
+        <ng-container *ngIf="currentUser.isAdmin == true">
+          <div class="btn-bottom">
+            <button class="btn btn-edit btn-warning btn-radius" (click)="onEditClick()"> Edit movie <fa-icon [icon]="faVideo"></fa-icon></button>
+            <button mat-fab (click)="onAddSeanceClick(movie)"><fa-icon [icon]="faPlus"></fa-icon></button>
+          </div>
+        </ng-container>
+      </ng-container>
+    </section>
+  </ng-container>
+</body>
+
